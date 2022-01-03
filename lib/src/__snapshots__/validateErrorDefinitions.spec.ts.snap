@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`validateErrorDefinitions should throw error if Error definitions clash 1`] = `"Cannot read properties of undefined (reading 'id')"`;
+
+exports[`validateErrorDefinitions should verify that there are no hash collision in the errorDefinitions 1`] = `"Duplicate hash for ids undefined and \\"HUB:ERROR:ATTORNMENT\\""`;
