@@ -21,7 +21,8 @@
     "build": "tsc --build",
     "test": "jest",
     "clean": "rm -rf dist node_modules coverage yarn.lock",
-    "generateErrorCodes": "node dist/bin/generateErrorCodes.js ./artifacts/errorCodes.json"
+    "generateErrorCodes": "node dist/bin/generateErrorCodes.js ./artifacts/errorCodes.json",
+    "publish": "npm version patch"
   },
   "keywords": [
     "error",
