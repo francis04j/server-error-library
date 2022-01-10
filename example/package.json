@@ -3,16 +3,18 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "license": "MIT",
+  "errorDefinitions": "./dist/errorDefinitions.js",
   "scripts": {
     "inits": "tsc --init",
     "build": "tsc --build",
-    "dev": "node dist/index.js"
+    "dev": "node dist/index.js",
+    "listErrorCodes": "generateErrorCodes ./artifacts/errorCodes.json"
   },
   "devDependencies": {
     "@types/node": "^17.0.2",
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "server-error-library": "^1.0.0"
+    "server-error-library": "../lib"
   }
 }

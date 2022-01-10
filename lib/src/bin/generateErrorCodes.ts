@@ -1,4 +1,6 @@
 import path from 'path';
+import fs from 'fs';
+import mkdirp from 'mkdirp';
 import { validateErrorDefinitions } from '..';
 import flattenErrorDefinition from '../flattenErrorDefinitions';
 const args = process.argv.slice(2);
@@ -11,13 +13,23 @@ if(!errorDefinition) {
     );
 }
 
-const definitions = require(`${packageJson.name}/${packageJson.errorDefinitions}`);
-const definitionsList = Object.values(flattenErrorDefinition(definitions));
 
-const errorCodeMap = validateErrorDefinitions(definitions)
+const definitions = require(`../${packageJson.errorDefinitions}`);
+//const definitionsList = Object.values(flattenErrorDefinition(definitions));
 
+const def = definitions?.default? definitions.default : definitions;
+const errorCodeMap = validateErrorDefinitions(def) // default because we are export default in errorDefintions.js
+// console.log('Errpr Defintions', errorCodeMap)
 const output = {
     name: packageJson.name,
     version: packageJson.version,
     definitions: Object.values(errorCodeMap),
 };
+
+const resultFile = path.resolve(process.cwd(), args[0]);
+const resultDir = path.dirname(resultFile);
+
+mkdirp.sync(resultDir);
+fs.writeFileSync(resultFile, JSON.stringify(output, null, 2));
+
+console.log('Error codes generated successfully!');

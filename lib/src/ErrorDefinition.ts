@@ -27,13 +27,14 @@ class ErrorDefinition {
       return this;
     }
 
-    generateId = (id: string) => 
-    crypto
-    .createHash('MD5')
-    .update(id)
-    .digest('hex')
-    .substr(0, 6)
-    .toUpperCase();
+    private generateId (id: string) : string { 
+      return crypto
+      .createHash('MD5')
+      .update(id)
+      .digest('hex')
+      .substr(0, 6)
+      .toUpperCase();
+    }
   
     toString(): string {
       const message = this.message.replace(/"/g, '""');

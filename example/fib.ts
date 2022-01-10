@@ -1,4 +1,4 @@
-import {ServerError} from 'server-error-libraryss';
+import {ServerError} from 'server-error-library';
 import errorDefinitions from './errorDefinition';
 
 const fib = (input: number): number => {

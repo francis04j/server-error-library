@@ -4,8 +4,9 @@ A library for defining and structuring errors
 
 ## Problem statement
 
-In a server application, errors often occur. In most cases, these errors are anticipated, caught and thrown
-for example:
+In a server application, errors often occur. In most cases, these errors are anticipated, caught and thrown.
+
+For example:
 
 ```js
 try {
@@ -17,11 +18,13 @@ try {
 
 Now a couple of issues crop up when errors are defined like above in an application:
 
-1. There is no way to know all the possible errors that your application might throw without manually sniffing through the code. This is an information that is imperative to the consumers of your application especially if your consumner is an UI client.
+1. There is no way to know all the possible errors that your application might throw without manually sniffing through the code.
 
-2. Most errors thrown are often a message or a status code or a combination of both. This is not ideal for your consumers. this library enforces a pattern of defining your errors to always have a unique code and message.
+2. The message of the error is user-generated which can be mis-worded
 
-3. Having an error message or status code is not often enough. You need them to be uniquely identifiable so that debugging and reporting are easy. this library enforces uniqueness of errors in your application(s)
+3. The message of the error can also conflict with other messages
+
+4. The message of the error often lack context
 
 ## Solution
 This library solves the above problems  by enforcing a pattern for error defintion and ensuring the errors are unique through out the application and referenced applications.
@@ -67,6 +70,12 @@ try {
 }
 
 ```
+
+3.  Export all the error defintions in your appplication by running the bin command, generateErrorCodes
+```
+$ generateErrorCodes
+```
+
 ## Quick Start
 
 TL;DR? Check out the [quick start example][quick-example] in `./examples/`.

@@ -1,0 +1,24 @@
+{
+  "name": "server-error-library",
+  "version": "0.0.1",
+  "definitions": [
+    {
+      "message": "no number less than zero allowed",
+      "statusCode": 400,
+      "id": "INPUT:MIN",
+      "errorId": "FC4B3F"
+    },
+    {
+      "message": "Maximum input is 99",
+      "statusCode": 400,
+      "id": "INPUT:MAX",
+      "errorId": "64C47C"
+    },
+    {
+      "message": "Server error",
+      "statusCode": 500,
+      "id": "COMPUTE",
+      "errorId": "99C2FA"
+    }
+  ]
+}
