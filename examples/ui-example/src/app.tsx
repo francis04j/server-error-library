@@ -65,4 +65,8 @@ function App() {
 //     )
 // }
 
+//resources:
+// adding cors
+// react useEffect for data: https://www.robinwieruch.de/react-hooks-fetch-data/
+
 export default App;
